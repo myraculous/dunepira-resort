@@ -34,15 +34,36 @@ formatData(items){
     return tempItems;
 }
 
+getRoom = slug =>{
+    let tempRooms = [...this.state.rooms];
+    const room = tempRooms.find(room => room.slug === slug);
+    return room;
+}
     render() {
         return (
-            <RoomContext.Provider value={{...this.state}}>
+            <RoomContext.Provider 
+            value={{
+                ...this.state,
+                getRoom:this.getRoom
+            }}
+            >
                 {this.props.children}
             </RoomContext.Provider>
         );
     }
 }
 
-const RoonConsumer  = RoomContext.Consumer;
+const RoomConsumer  = RoomContext.Consumer;
 
-export {RoomProvider, RoonConsumer, RoomContext};
+export function withRoomConsumer(Component){
+    return function ConsumerWrapper(props){
+        return (
+            <RoomConsumer>
+            {value => <Component {...props} context={value}  />}
+            </RoomConsumer>
+        );
+    };
+}
+
+
+export {RoomProvider, RoomConsumer, RoomContext};

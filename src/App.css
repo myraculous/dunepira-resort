@@ -116,6 +116,7 @@ h6 {
   overflow: hidden; 
 	transition: var(--mainTransition);
 	list-style-type: none;
+	text-transform: uppercase;
 }
 .nav-links a {
 	display: block;
