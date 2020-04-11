@@ -13,7 +13,7 @@ if(loading) {
     return (
         <>
             
-            <RoomFilter room ={rooms} />
+            <RoomFilter rooms ={rooms} />
             <RoomsList rooms ={sortedRooms}  />
         </>
         );
