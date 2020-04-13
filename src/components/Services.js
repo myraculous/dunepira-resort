@@ -8,22 +8,22 @@ class Services extends Component {
             {
                 icon:<FaCocktail/>,
                 title: "free cocktails",
-                info: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, amet."
+                info: "Let’s say you have slim glasses in the bathroom and slightly larger ones next to the minibar. Fit the larger glass over the mouth of the small one, and voilà: cocktail shaker. Just do your shaking over the bathroom sink."
             },
             {
                 icon:<FaHiking/>,
                 title: "Endless Hiking",
-                info: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, amet."
+                info: "Hiking is so much fun and full of adventures. Hiking is all about walking through the long distances , fresh air , observing the beautiful nature and that smell of nature is just mind blowing."
             },
             {
                 icon:<FaShuttleVan/>,
                 title: "Free shuttle",
-                info: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, amet."
+                info: "A shorter trip from the resort means you’ll save on public transportation, rideshare, or taxi service costs. MAs Dunepira resort also provide a complimentary shuttle in our luxury rides"
             },
             {
                 icon:<FaBeer/>,
                 title: "Strongest Beer",
-                info: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, amet."
+                info: "The first steps on your journey of dunepira beer discovery. our beer is approachable, balanced and endlessly crushable. With a juicy dry-hop and grapefruit zest this sour IPA is just the beginning."
             }
 
 
