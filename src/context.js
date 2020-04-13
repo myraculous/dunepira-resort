@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
-import items from './data';
+// import items from './data';
+import Client from './Contentful';
+
 
 const RoomContext =  React.createContext();
 // <RoomContext.Provider value={'helo'}
+
+
 class RoomProvider extends Component {
 
     state = {
@@ -22,32 +26,44 @@ class RoomProvider extends Component {
 
     };
     // getData
+    getData = async () => {
+        try {
+            let response = await 
+            Client.getEntries({
+                content_type: "dunepiraResortRooms",
+                order: "-fields.price"
+            });
+            let rooms = this.formatData(response.items);
+            let featuredRooms = rooms.filter(room => room.featured === true);
+            let maxPrice = Math.max(...rooms.map(item => item.price));
+            let maxSize = Math.max(...rooms.map(item => item.size));
+
+            this.setState({
+                rooms, 
+                featuredRooms, 
+                sortedRooms:rooms, 
+                loading:false,
+                price:maxPrice,
+                maxPrice,
+                maxSize
+            });
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     componentDidMount(){
-        let rooms = this.formatData(items);
-        let featuredRooms = rooms.filter(room =>room.featured === true);
-        let maxPrice = Math.max(...rooms.map(item => item.price));
-        let maxSize = Math.max(...rooms.map(item => item.size));
-
-        this.setState({
-            rooms, 
-            featuredRooms, 
-            sortedRooms:rooms, 
-            loading:false,
-            price:maxPrice,
-            maxPrice,
-            maxSize
-
-        });
+        this.getData();
     };
 
    
-
 formatData(items){
     let tempItems = items.map(item => {
         let id = item.sys.id;
-        let images = item.fields.images.map(image=>image.fields.file.url);
+        let images = item.fields.images.map(image => image.fields.file.url);
+        
         let room = { ...item.fields, images, id };
-
         return room;
 
     });
@@ -64,9 +80,11 @@ handleChange =  event => {
     const value = target.type === 'checkbox' ? target.checked: target.value;
     const name = event.target.name;
 
-    this.setState({
-        [name] : value
-    }, this.filterRooms)
+        this.setState({
+            [name] : value
+        }, 
+        this.filterRooms
+    );
    
 }
 filterRooms = () =>{
