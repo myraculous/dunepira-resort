@@ -53,7 +53,7 @@ static contextType = RoomContext;
 		<article className="info">
 		
 		<h3>info</h3>
-		<h6>Price: ${price}</h6>
+		<h6>Price:  &#x20a6;{price}</h6>
 		<h6>Size: {size} SQFT</h6>
 		<h6>
 		max capacity : { capacity > 1 ? `${capacity} people` : `${capacity} person`}
