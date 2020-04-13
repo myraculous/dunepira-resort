@@ -11,7 +11,7 @@ export const Home = () => {
 		
 		<>
 			<Hero>
-			<Banner title="luxirios rooms" subtitle="deluxe rooms starting at $299">
+			<Banner title="luxirios rooms" subtitle="deluxe rooms starting at  &#x20a6;100,000 ">
 			<Link to="/rooms" className="btn-primary">our rooms</Link>
 			
 			</Banner>
